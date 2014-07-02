@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Text Typer</title>
+
+        <meta name="viewport" content="width=device-width">
+		<style>
+			#hello{
+				position:fixed;
+				font-size: 6em;
+				color: #000;
+				z-index: 1000000;
+				letter-spacing: -5px;
+				line-height: 1em;
+				top:40%;
+				width:100%;
+				height: 100%;
+				left: 20px;
+				font-weight:bold;
+				opacity: 0.4;
+			}
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+		<div id="hello"></div>
+		<h1 class="second"></h1>
+
+		<script src="js/jquery.typer.js"></script>
+		<script type="text/javascript">
+			function exampleCallback(){
+				console.log("exampleCallback called");
+			}
+		
+			$(document).ready( function(){
+				var headline = "I create digital experiences that make the complex simple and beautiful.";
+				$("#hello").typer({message:headline, callback: exampleCallback});
+				
+				var textExample = "Mary had a little lamb and her fur was white as snow";
+				$(".second").typer({message:textExample, speed:50, autostart: false, delay:1000});
+				$(".second").typer("start").animate({"margin-left": "40px"}, 6000).animate({"margin-left": "0px"}, 500);
+
+			});
+		</script>
+    </body>
+</html>
